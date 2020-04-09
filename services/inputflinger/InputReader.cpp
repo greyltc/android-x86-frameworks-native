@@ -2871,7 +2871,7 @@ void CursorInputMapper::sync(nsecs_t when) {
             rotateDelta(mOrientation, &deltaX, &deltaY);
         }
         mPointerVelocityControl.move(when, &deltaX, &deltaY);
-        if (mSource == AINPUT_SOURCE_MOUSE) {
+        if (mPointerController != NULL) {
             if (moved) {
                 mPointerController->move(deltaX, deltaY);
             }
